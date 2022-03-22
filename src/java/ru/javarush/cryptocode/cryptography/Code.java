@@ -20,10 +20,10 @@ public class Code {
             for (int j = 0; j < SYMBOL_SEQUENCE.length; j++) {
                 if (symbol == SYMBOL_SEQUENCE[j]) {
                     index = j + key;
-                    if (index >= 0 && index <= 40) {
+                    if (index >= 0 && index <= (SYMBOL_SEQUENCE.length - 1)) {
                         resultString.append(SYMBOL_SEQUENCE[index]);
-                    } else if (index > 40) {
-                        resultString.append(SYMBOL_SEQUENCE[index % 41]);
+                    } else if (index > (SYMBOL_SEQUENCE.length - 1)) {
+                        resultString.append(SYMBOL_SEQUENCE[index % SYMBOL_SEQUENCE.length]);
                     }
                 }
             }
@@ -40,12 +40,12 @@ public class Code {
             for (int j = 0; j < SYMBOL_SEQUENCE.length; j++) {
                 if (symbol == SYMBOL_SEQUENCE[j]) {
                     index = j - key;
-                    if (index >= 0 && index <= 40) {
+                    if (index >= 0 && index <= (SYMBOL_SEQUENCE.length - 1)) {
                         resultString.append(SYMBOL_SEQUENCE[index]);
-                    } else if (index < 0 && index > -40) {
-                        resultString.append(SYMBOL_SEQUENCE[41 + index]);
-                    } else if (index < -40) {
-                        resultString.append(SYMBOL_SEQUENCE[(index % 41) * (-1)]);
+                    } else if (index < 0 && index > - (SYMBOL_SEQUENCE.length - 1)) {
+                        resultString.append(SYMBOL_SEQUENCE[SYMBOL_SEQUENCE.length + index]);
+                    } else if (index < - (SYMBOL_SEQUENCE.length - 1)) {
+                        resultString.append(SYMBOL_SEQUENCE[(index % SYMBOL_SEQUENCE.length) * (-1)]);
                     }
                 }
             }
