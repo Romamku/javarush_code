@@ -12,7 +12,7 @@ public class Code {
             ' '};
 
     public static String cezarCoding(String text, int key) {
-        StringBuilder resultString = new StringBuilder(text.length());
+        StringBuilder resultStb = new StringBuilder(text.length());
         char symbol;
         int index;
         for (int i = 0; i < text.length(); i++) {
@@ -21,18 +21,18 @@ public class Code {
                 if (symbol == SYMBOL_SEQUENCE[j]) {
                     index = j + key;
                     if (index >= 0 && index <= (SYMBOL_SEQUENCE.length - 1)) {
-                        resultString.append(SYMBOL_SEQUENCE[index]);
+                        resultStb.append(SYMBOL_SEQUENCE[index]);
                     } else if (index > (SYMBOL_SEQUENCE.length - 1)) {
-                        resultString.append(SYMBOL_SEQUENCE[index % SYMBOL_SEQUENCE.length]);
+                        resultStb.append(SYMBOL_SEQUENCE[index % SYMBOL_SEQUENCE.length]);
                     }
                 }
             }
         }
-        return resultString.toString();
+        return resultStb.toString();
     }
 
     public static String cezarDecoding(String text, int key) {
-        StringBuilder resultString = new StringBuilder(text.length());
+        StringBuilder resultStb = new StringBuilder(text.length());
         char symbol;
         int index;
         for (int i = 0; i < text.length(); i++) {
@@ -41,28 +41,28 @@ public class Code {
                 if (symbol == SYMBOL_SEQUENCE[j]) {
                     index = j - key;
                     if (index >= 0 && index <= (SYMBOL_SEQUENCE.length - 1)) {
-                        resultString.append(SYMBOL_SEQUENCE[index]);
+                        resultStb.append(SYMBOL_SEQUENCE[index]);
                     } else if (index < 0 && index > - (SYMBOL_SEQUENCE.length - 1)) {
-                        resultString.append(SYMBOL_SEQUENCE[SYMBOL_SEQUENCE.length + index]);
+                        resultStb.append(SYMBOL_SEQUENCE[SYMBOL_SEQUENCE.length + index]);
                     } else if (index < - (SYMBOL_SEQUENCE.length - 1)) {
-                        resultString.append(SYMBOL_SEQUENCE[(index % SYMBOL_SEQUENCE.length) * (-1)]);
+                        resultStb.append(SYMBOL_SEQUENCE[(index % SYMBOL_SEQUENCE.length) * (-1)]);
                     }
                 }
             }
         }
-        return resultString.toString();
+        return resultStb.toString();
     }
 
     public static String bruteForceDecoding(String pathFileForCode) throws IOException {
         String result = null;
-        String[] variantText = new String[SYMBOL_SEQUENCE.length];
+        String[] optionText = new String[SYMBOL_SEQUENCE.length];
         for (int i = 0; i < SYMBOL_SEQUENCE.length; i++) {
-            variantText[i] = cezarDecoding(IOWorker.readFile(pathFileForCode), i);
+            optionText[i] = cezarDecoding(IOWorker.readFile(pathFileForCode), i);
         }
 
-        for (int i = 0; i < variantText.length; i++) {
-            if (variantText[i].contains(", ") && variantText[i].contains(". ")) {
-                result = variantText[i];
+        for (int i = 0; i < optionText.length; i++) {
+            if (optionText[i].contains(", ") && optionText[i].contains(". ")) {
+                result = optionText[i];
             }
         }
         return result;
@@ -77,12 +77,12 @@ public class Code {
         for (int i = 0; i < 3; i++) {
             int numberCode = 0;
             int numberCompare = 0;
-            for (int j = 0; j < SYMBOL_SEQUENCE.length; j++) {
-                if (SYMBOL_SEQUENCE[j] == symbolsForStatisticDecoding[i]) {
-                    numberCode = j;
+            for (int numberSymbol = 0; numberSymbol < SYMBOL_SEQUENCE.length; numberSymbol++) {
+                if (SYMBOL_SEQUENCE[numberSymbol] == symbolsForStatisticDecoding[i]) {
+                    numberCode = numberSymbol;
                 }
-                if (SYMBOL_SEQUENCE[j] == symbolsTextForCompare[i]) {
-                    numberCompare = j;
+                if (SYMBOL_SEQUENCE[numberSymbol] == symbolsTextForCompare[i]) {
+                    numberCompare = numberSymbol;
                 }
             }
             int key = Math.abs(numberCode - numberCompare);
