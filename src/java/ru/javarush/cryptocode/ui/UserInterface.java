@@ -9,7 +9,10 @@ import java.util.Scanner;
 
 public class UserInterface {
     public static void start() {
-        System.out.println("Welcome to the best Caesar cipher application!\n " +
+        System.out.println("*****************\n" +
+                           "*****Welcome*****\n" +
+                           "**CRYPTANALYZER**\n" +
+                           "*****************\n" +
                 "And so on the menu:\n " +
                 "1. Encryption by key. Enter number 1.\n " +
                 "2. Decrypt by key. Enter number 2.\n " +
@@ -18,7 +21,7 @@ public class UserInterface {
                 "Enter the required action number:");
 
         try {
-            //создал в корне папки текстовые файлы
+            //created text files at the root of the folder
             String pathFileForText = "text.txt";
             String pathFileForCode = "code.txt";
             String pathFileForCompare = "anyText.txt";

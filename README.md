@@ -1,21 +1,22 @@
 # Криптоанализатор
 
 ### **[Итоговый проект к курсу Java Syntax. Javarush.]()**
-Данное консольное приложение работает с шифром Цезаря. За основу криптографического 
-алфавита взяты все буквы русского алфавита и знаки пунктуации (. , ”” : - ! ? ПРОБЕЛ). 
-Если попадаются символы, которые не входят в наш криптографический алфавит, они игнорируются.
+This console application works with Caesar’s cipher. 
+The cryptographic alphabet is based on all letters of the Russian 
+alphabet and punctuation signs (. , ”” : - ! ? ПРОБЕЛ).
+If you come across symbols that are not in our cryptographic alphabet, they are ignored.
 
-У прораммы 4 режима:
-1. Шифрование текста с использованием криптографического ключа;
-2. Расшифровка текста с использованием криптографического ключа;
-3. Криптоанализ методом Brute Force;
-4. Криптоанализ методом статистического анализа.
+The program has 4 modes:
+1. Text encryption using a cryptographic key;
+2. Decryption of text using a cryptographic key;
+3. Brute Force cryptanalysis;
+4. Cryptanalysis by statistical analysis.
 
-У пользователя есть возможность выбрать один из четырех режимов работы.
+The user has the opportunity to choose one of the four modes of operation.
 
-Для начала использования программы необходимо создать в корне директории три текстовых файла:
-1. text.txt - для хранения исходного текста;
-2. code.txt - для хранения закодированного текста;
-3. anyText.txt - для хранения текста используемого в статистическом анализе.
+To start using the program, you need to create three text files in the root directory:
+1. text.txt - to store the source code;
+2. code.txt - for storing encoded text;
+3. anyText.txt - to store the text used in statistical analysis.
 
-Все дальнейшие инструкции и подсказки будут отражены в консоли.
+All further instructions and hints will be reflected in the console.
